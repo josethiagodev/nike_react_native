@@ -1,7 +1,7 @@
 <h2>📃 Sobre o aplicação:</h2>
 Aplicação mobile desenvolvida com React Native e Expo
 <br><br>
-<img src="src/assets/nike_react_native.jpg" alt="Aplicação mobile feita em React Native e Expo" />
+<img src="src/assets/nike_react_native.jpg" alt="Aplicação mobile desenvolvida com React Native e Expo" />
 <br><br>
 <h2>⚙️ Tecnologias + Ferramentas:</h2>
 <ul>
@@ -12,7 +12,7 @@ Aplicação mobile desenvolvida com React Native e Expo
 <h2>🚀 Baixando aplicação:</h2><span class="pl-c"><span class="pl-c">#</span> Clone o projeto a partir do meu repositório:</span>
 $ git clone ...<br>
 <span class="pl-c"><span class="pl-c">#</span> Entre no diretório via prompt de comando:</span>
-$ <span class="pl-c1">cd</span> nike_native_weather
+$ <span class="pl-c1">cd</span> nike_react_native
 <span class="pl-c"><span class="pl-c">#</span> Para abrir o projeto no VS CODE, use o comando:</span>
 $ <span class="pl-c1">code .</span>
 <br>
