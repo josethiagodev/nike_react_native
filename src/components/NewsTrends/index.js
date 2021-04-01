@@ -12,7 +12,7 @@ export default function NewsTrends({ name, price }) {
           style={[styles.cardProduct, { marginRight: 0, } ]}
         >
           <Image
-            source={require('../../assets/product_nike_2.png')} 
+            source={require('../../assets/product_nike_1.png')} 
             style={styles.image}
           />
           <View style={styles.information}>

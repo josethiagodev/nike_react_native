@@ -1,204 +1,212 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { FontAwesome, Ionicons } from '@expo/vector-icons';
+import { View, StyleSheet, Image, ScrollView, FlatList, TouchableOpacity, Text } from 'react-native';
+import { Ionicons, FontAwesome, FontAwesome5, MaterialCommunityIcons } from '@expo/vector-icons'; 
 
-import CardProduct from '../../components/CardProduct';
+import Header from '../../components/Header';
 
 export default function Home() {
   const navigation = useNavigation();
 
-  return (
-    <View style={styles.container}>
+  const listSlider = [
+    { key: '1', image: require('../../assets/slider_category_2.png') },
+    { key: '2', image: require('../../assets/slider_category_3.png') },
+  ]
 
-      <View style={styles.banner}>
-        <View style={styles.slider}>
-          <TouchableOpacity style={styles.buttonBack}>
-            <Ionicons name="ios-arrow-back" style={styles.iconBack} />
-          </TouchableOpacity>
+  function SliderHome({ image }) {
+    return (
+      <View style={styles.sliderHome}>
+        <TouchableOpacity 
+          style={styles.containerSlider} 
+          onPress={ () => navigation.navigate('ListProducts') }
+        >
           <Image 
-            style={styles.image} 
-            source={require('../../assets/slider_category_1.png')} 
+            source={image}
+            style={styles.imageSlider} 
+            resizeMode="cover" 
+          />
+        </TouchableOpacity>
+      </View>
+    );
+  }
+
+  return (
+    <View style={styles.pageLogin}>
+
+      <View style={styles.header}>
+        <Header />
+      </View>
+
+      <ScrollView style={styles.main} vertical showsVerticalScrollIndicator={false}>
+        
+        <View style={styles.section}>
+          <FlatList 
+            horizontal 
+            showsHorizontalScrollIndicator={false}
+            keyExtractor={ (item) => item.key }
+            data={listSlider}
+            renderItem={ ({ item }) => <SliderHome image={item.image} /> }
           />
         </View>
 
-        <View style={styles.breadcrumb}>
-          <Text style={styles.category}>Tênis</Text>
-          <Text style={[ styles.arrowCircle, { color: '#CECECE' } ]}>
-            <FontAwesome name="circle" style={styles.iconCircle} />
-          </Text>
-          <Text style={[ styles.category, { color: '#CECECE' } ]}>Masculino</Text>
-          <TouchableOpacity style={styles.btnFilter}>
-            <Ionicons name="md-filter-sharp" style={styles.iconFilter} />
+
+        <View style={styles.categories}>
+          <TouchableOpacity 
+            onPress={ () => navigation.navigate('ListProducts') }
+            style={styles.btnCategory} 
+          >
+            <View style={styles.iconCategory}>
+              <Ionicons name="md-shirt" size={25} color="#2d3436" />
+            </View>
+            <Text style={styles.textCategory}>Camisas</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+            onPress={ () => navigation.navigate('ListProducts') }
+            style={styles.btnCategory} 
+          >
+            <View style={styles.iconCategory}>
+              <FontAwesome5 name="shoe-prints" size={24} color="#2d3436" />
+            </View>
+            <Text style={styles.textCategory}>Chuteiras</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+            onPress={ () => navigation.navigate('ListProducts') }
+            style={styles.btnCategory} 
+          >
+            <View style={styles.iconCategory}>
+              <FontAwesome name="soccer-ball-o" size={25} color="#2d3436" />
+            </View>
+            <Text style={styles.textCategory}>Bolas</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+            onPress={ () => navigation.navigate('ListProducts') }
+            style={styles.btnCategory} 
+          >
+            <View style={styles.iconCategory}>
+              <MaterialCommunityIcons name="bag-personal" size={28} color="#2d3436" />
+            </View>
+            <Text style={styles.textCategory}>Mochilas</Text>
           </TouchableOpacity>
         </View>
-      </View>
 
-      <View style={styles.lineBorder}></View>
-
-      <ScrollView style={styles.contentPage}>
-        <Text style={styles.titleLaunch}>Lançamentos</Text>
-
-        <View style={styles.wrapperProduct}>
-          <CardProduct 
-            img={require('../../assets/product_nike_2.png')}
-            cost="R$ 499,00"
-            onClick={ () => navigation.navigate('Details') }
+        
+        <View style={styles.article}>
+          <TouchableOpacity 
+            onPress={ () => navigation.navigate('ListProducts') }
           >
-            Tênis Nike Revolution 5
-          </CardProduct>
+            <Image 
+              source={require('../../assets/slider_category_5.png')} 
+              style={styles.image}  
+            />
+          </TouchableOpacity>
 
-          <CardProduct 
-            img={require('../../assets/product_nike_3.png')}
-            cost="R$ 179,50"
-            onClick={ () => navigation.navigate('Details') }
+          <TouchableOpacity 
+            onPress={ () => navigation.navigate('ListProducts')}
           >
-            Nike NBA 2021 - Pré-Venda
-          </CardProduct>
-
-          <CardProduct 
-            img={require('../../assets/product_nike_4.png')}
-            cost="R$ 249,90"
-            onClick={ () => navigation.navigate('Details') }
-          >
-            Nike NBA 2021 - Pré-Venda
-          </CardProduct>
-
-          <CardProduct 
-            img={require('../../assets/product_nike_5.png')}
-            cost="R$ 349,99"
-            onClick={ () => navigation.navigate('Details') }
-          >
-            Nike NBA 2021 - Pré-Venda
-          </CardProduct>
-
-          <CardProduct 
-            img={require('../../assets/product_nike_6.png')}
-            cost="R$ 499,00"
-            onClick={ () => navigation.navigate('Details') }
-          >
-            Nike NBA 2021 - Pré-Venda
-          </CardProduct>
-
-          <CardProduct 
-            img={require('../../assets/product_nike_1.png')}
-            cost="429,90"
-            onClick={ () => navigation.navigate('Details') }
-          >
-            Nike NBA 2021 - Pré-Venda
-          </CardProduct>
+            <Image 
+              source={require('../../assets/slider_category_4.png')} 
+              style={styles.image}  
+            />
+          </TouchableOpacity>
           
+          <TouchableOpacity 
+            onPress={ () => navigation.navigate('ListProducts') }
+          >
+            <Image 
+              source={require('../../assets/slider_category_1.png')} 
+              style={styles.image}  
+            />
+          </TouchableOpacity>
         </View>
 
       </ScrollView>
 
     </View>
   );
- }
+}
 
- const styles = StyleSheet.create({
-  container: {
+const styles = StyleSheet.create({
+  pageLogin: {
     flex: 1,
     width: '100%',
-    height: 'auto',
-    backgroundColor: '#FFFFFF',
+    height: '100%',
   },
-  banner: {
+  header: {
+    width: '100%',
+    paddingTop: 24,
+  },
+  main: {
+    width: '100%',
+    height: '100%',
+  },
+  section: {
+    width: '100%',
+    backgroundColor: 'rgb(242, 201, 76)',
+  },
+  sliderHome: {
+    flex: 1,
+    flexDirection: 'row',
     width: '100%',
     height: 'auto',
-    marginBottom: 10,
   },
-  slider: {
-    position: 'relative',
+  containerSlider: {
     width: '100%',
+    padding: 20,
+    height: 'auto',
   },
-  buttonBack: {
+  imageSlider: {
+    flexDirection: 'row',
+    width: 355,
+    height: 145,
+    borderRadius: 10,
+  },
+  categories: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%',
+    height: 'auto',
+    paddingTop: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
+  },
+  btnCategory: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    zIndex: 2,
-    position: 'absolute',
     width: 'auto',
     height: 'auto',
-    top: 40,
-    left: 15,
-    color: '#FFFFFF',
   },
-  iconBack: {
-    fontSize: 28,
-    color: '#FFFFFF',
+  iconCategory: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 60,
+    height: 60,
+    borderRadius: 60,
+    backgroundColor: '#dfe6e9',
+  },
+  textCategory: {
+    width: '100%',
+    height: 'auto',
+    lineHeight: 18,
+    marginTop: 4,
+    color:'#212529',
+    textAlign: 'center',
+    fontSize: 13.5,
+    fontFamily: 'Oswald_400Regular',
+  },
+  article: {
+    width: '100%',
+    height: 'auto',
+    paddingBottom: 20,
   },
   image: {
-    width: '100%',
-    height: 200,
-  },
-  breadcrumb: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    position: 'relative',
-    width: '100%',
-    height: 'auto',
-    paddingTop: 24,
-    paddingLeft: 15,
-    paddingRight: 15,
-    paddingBottom: 17,
-  },
-  category: {
-    fontSize: 17,
-    textTransform: 'uppercase',
-    fontFamily: 'EncodeSans_700Bold',
-    color: '#212529',
-  },
-  arrowCircle: {
-    width: 'auto',
-    height: 'auto',
-    marginHorizontal: 6,
-  },
-  iconCircle: {
-    fontSize: 8,
-    color: '#212529',
-  },
-  btnFilter: {
-    position: 'absolute',
-    alignSelf: 'center',
-    top: 15,
-    right: 15,
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 40,
-    height: 40,
-    backgroundColor: '#f7f7f7',
-    borderRadius: 5,
-  },
-  iconFilter: {
-    fontSize: 22,
-    color: '#8d8d8d',
-  },
-  lineBorder: {
-    width: '100%',
-    borderBottomColor: '#D9D9D9',
-    borderBottomWidth: 2,
-  },
-  contentPage: {
-    width: '100%',
-  },
-  titleLaunch: {
-    width: '100%',
-    height: 'auto',
-    fontSize: 18,
-    textTransform: 'uppercase',
-    fontFamily: 'EncodeSans_700Bold',
-    color: '#212529',
-    paddingTop: 25,
-    paddingLeft: 15,
-    paddingRight: 15,
-    paddingBottom: 25,
-  },
-  wrapperProduct: {
-    flex: 1,
-    flexWrap: 'wrap',
-    flexDirection: 'row',
-		justifyContent: 'center',
-    paddingStart: 10,
-    paddingEnd: 10,
+    marginTop: 25,
+    marginHorizontal: 20,
+    borderRadius: 10,
   },
 });

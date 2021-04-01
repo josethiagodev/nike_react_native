@@ -7,13 +7,14 @@ import AppLoading from 'expo-app-loading';
 import { useFonts, EncodeSans_600SemiBold, EncodeSans_700Bold } from '@expo-google-fonts/encode-sans';
 import { Oswald_400Regular } from '@expo-google-fonts/oswald';
 
+
 import Routes from './src/router';
 
 export default function App() {
   let [fontsLoaded] = useFonts({
     EncodeSans_600SemiBold, 
     EncodeSans_700Bold, 
-    Oswald_400Regular
+    Oswald_400Regular,
   });
 
   if(!fontsLoaded) {
@@ -22,7 +23,7 @@ export default function App() {
 
   return (
     <>
-      <StatusBar style="light" backgroundColor="#000" translucent={true} />
+      <StatusBar style="light" backgroundColor="#212529" translucent={true} />
       <Routes />
     </>
   );

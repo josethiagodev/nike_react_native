@@ -20,7 +20,7 @@ export default function Details({ navigation }) {
   ]
 
   return (
-    <ScrollView style={styles.pageDetails}>
+    <ScrollView vertical showsVerticalScrollIndicator={false} style={styles.pageDetails}>
 
       <Image
         source={require('../../assets/product_nike_big.png')} 
@@ -59,10 +59,11 @@ export default function Details({ navigation }) {
         </View>
 
         <View style={styles.newsTrends}>
-          <Text style={styles.paragraph}>Novidades e Tendências</Text>
+          <Text style={styles.paragraph}>Novidades e tendências</Text>
           <FlatList
             keyExtractor={ item => item.id }
-            horizontal
+            horizontal 
+            showsHorizontalScrollIndicator={false}
             data={productsNewsTrends}
             renderItem={({ item }) => <NewsTrends name={item.title} price={item.cost} />}
           />
