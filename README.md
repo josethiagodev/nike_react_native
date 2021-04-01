@@ -9,7 +9,7 @@ Aplicação mobile desenvolvida com React Native e Expo
 <li><strong>Expo:</strong> É uma ferramenta utilizada no desenvolvimento mobile com React Native que permite o fácil acesso às API's nativas do dispositivo sem precisar instalar qualquer dependência ou alterar código nativo.</li>
 <br><br>
 <pre>
-<h2>🚀 Baixando aplicação:</h2><span class="pl-c"><span class="pl-c">#</span> Clone o projeto a partir do meu repositório:</span>
+<h2>🚀 Baixando aplicação:</h2><span class="pl-c"><span class="pl-c">#</span> Clone o projeto a partir do meu repositório do GitHub:</span>
 $ git clone ...<br>
 <span class="pl-c"><span class="pl-c">#</span> Entre no diretório via prompt de comando:</span>
 $ <span class="pl-c1">cd</span> nike_react_native

@@ -1,9 +1,11 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { View, StyleSheet, Image, ScrollView, FlatList, TouchableOpacity, Text } from 'react-native';
+import { View, StyleSheet, Image, ScrollView, FlatList, TouchableOpacity, Text, Dimensions } from 'react-native';
 import { Ionicons, FontAwesome, FontAwesome5, MaterialCommunityIcons } from '@expo/vector-icons'; 
 
 import Header from '../../components/Header';
+
+const { width } = Dimensions.get('window');
 
 export default function Home() {
   const navigation = useNavigation();
@@ -22,7 +24,7 @@ export default function Home() {
         >
           <Image 
             source={image}
-            style={styles.imageSlider} 
+            style={styles.imageSlider}
             resizeMode="cover" 
           />
         </TouchableOpacity>
@@ -153,15 +155,21 @@ const styles = StyleSheet.create({
     height: 'auto',
   },
   containerSlider: {
+    flex: 1,
+    resizeMode: 'cover',
     width: '100%',
-    padding: 20,
     height: 'auto',
+    paddingVertical: 20,
   },
   imageSlider: {
+    flex: 1,
     flexDirection: 'row',
-    width: 355,
-    height: 145,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: width - 40,
     borderRadius: 10,
+    marginLeft: 20,
+    marginRight: 20,
   },
   categories: {
     flex: 1,
